@@ -46,8 +46,8 @@ for private_key in private_keys:
         index += 1
 
         #если надо дозакинуть, куда не пришло, раскомментируй
-        if web3.eth.get_balance(web3.to_checksum_address(wallet)) > 0:
-            continue
+        #if web3.eth.get_balance(web3.to_checksum_address(wallet)) > 0:
+        #    continue
 
         amount_to_send = web3.to_wei(random.uniform(min_transfer_amount, max_transfer_amount), 'ether')
         nonce = web3.eth.get_transaction_count(from_address)
