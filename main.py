@@ -70,11 +70,10 @@ for private_key in private_keys:
 
             try:
                 web3.eth.wait_for_transaction_receipt(tx_hash, timeout=360)
-                # Успешная отправка, удаление адреса из списка
                 balance -= total_cost
             except TimeExhausted:
                 print(f"Время ожидания транзакции истекло: {tx_hash.hex()}")
-                # Повторная попытка отправки той же транзакции
+                
             time.sleep(random.randint(min_delay, max_delay))
         else:
             print(f"Недостаточно средств на кошельке {from_address} для отправки на {wallet}")
